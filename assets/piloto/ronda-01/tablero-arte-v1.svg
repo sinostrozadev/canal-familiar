@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#fff8ee"/><stop offset=".72" stop-color="#ffe3d7"/><stop offset="1" stop-color="#eeb9a9"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#d88e79"/><stop offset="1" stop-color="#a95149"/></linearGradient>
+    <linearGradient id="vase" x2="1" y2="1"><stop stop-color="#fffdf4"/><stop offset=".55" stop-color="#f8ead5"/><stop offset="1" stop-color="#dcc4aa"/></linearGradient>
+    <linearGradient id="plinth" x2="0" y2="1"><stop stop-color="#fffdf6"/><stop offset="1" stop-color="#d9d1c4"/></linearGradient>
+    <radialGradient id="spot"><stop stop-color="#fff8c8" stop-opacity=".72"/><stop offset="1" stop-color="#fff8c8" stop-opacity="0"/></radialGradient>
+    <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse"><circle cx="10" cy="18" r="1.4" fill="#132238" opacity=".045"/><circle cx="66" cy="42" r="1" fill="#132238" opacity=".035"/><circle cx="38" cy="78" r="1.2" fill="#132238" opacity=".03"/></pattern>
+    <filter id="soft"><feGaussianBlur stdDeviation="13"/></filter>
+    <style>
+      .title{font:700 55px Arial,sans-serif;letter-spacing:-1px;fill:#fff8ee}
+      .eyebrow{font:700 18px Arial,sans-serif;letter-spacing:4px;fill:#f6c84c}
+      .sub{font:400 27px Arial,sans-serif;fill:#dce6ee}
+      .number{font:700 25px Arial,sans-serif;fill:#fff}
+      .vessel{fill:url(#vase);stroke:#172554;stroke-width:6}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#wall)"/>
+  <rect width="1920" height="1080" fill="url(#grain)"/>
+  <path d="M0 805H1920V1080H0Z" fill="url(#floor)"/>
+  <path d="M0 805H1920" stroke="#8e4844" stroke-width="12"/>
+  <path d="M230 1080L525 805M725 1080L835 805M1195 1080L1085 805M1690 1080L1395 805" stroke="#c87568" stroke-width="4" opacity=".55"/>
+
+  <!-- Cabecera editorial -->
+  <path d="M0 0H1920V205H0Z" fill="#172554"/>
+  <path d="M0 205H1920" stroke="#f6c84c" stroke-width="6"/>
+  <circle cx="95" cy="98" r="45" fill="#f0645a"/>
+  <text x="95" y="107" text-anchor="middle" class="number">01</text>
+  <text x="165" y="65" class="eyebrow">MUSEO DE LAS COSAS IMPOSIBLES</text>
+  <text x="165" y="126" class="title">¿Qué jarrón rompe la regla?</text>
+  <text x="166" y="169" class="sub">Observa el tamaño de las figuras</text>
+  <g transform="translate(1740 102)"><circle r="55" fill="#253867" stroke="#5b6f9c" stroke-width="5"/><path d="M0-55A55 55 0 1 1-52 17" fill="none" stroke="#f6c84c" stroke-width="10" stroke-linecap="round"/><text y="14" text-anchor="middle" font-family="Arial" font-size="39" font-weight="700" fill="#fff">7</text></g>
+
+  <!-- Arquitectura de galería -->
+  <path d="M80 260H1840V770H80Z" fill="none" stroke="#d18f80" stroke-width="5"/>
+  <path d="M80 260h1760M80 770h1760" stroke="#fff" stroke-width="3" opacity=".7"/>
+  <g fill="#172554"><rect x="420" y="225" width="120" height="22" rx="11"/><rect x="900" y="225" width="120" height="22" rx="11"/><rect x="1380" y="225" width="120" height="22" rx="11"/></g>
+  <g fill="url(#spot)"><ellipse cx="480" cy="520" rx="310" ry="340"/><ellipse cx="960" cy="520" rx="310" ry="340"/><ellipse cx="1440" cy="520" rx="310" ry="340"/></g>
+
+  <!-- Sombras de piso -->
+  <g fill="#4f2829" opacity=".3" filter="url(#soft)"><ellipse cx="260" cy="828" rx="115" ry="27"/><ellipse cx="540" cy="828" rx="115" ry="27"/><ellipse cx="820" cy="828" rx="115" ry="27"/><ellipse cx="1100" cy="828" rx="115" ry="27"/><ellipse cx="1380" cy="828" rx="115" ry="27"/><ellipse cx="1660" cy="828" rx="115" ry="27"/></g>
+
+  <!-- Colección -->
+  <g transform="translate(140 320)">
+    <g transform="translate(0)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#f0645a" stroke-width="9"/><circle cx="120" cy="160" r="52" fill="#f0645a"/><rect x="102" y="306" width="36" height="36" rx="8" fill="#22b8a7"/></g>
+    <g transform="translate(280)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#7957d5" stroke-width="9"/><rect x="70" y="110" width="100" height="100" rx="22" fill="#7957d5"/><circle cx="120" cy="324" r="19" fill="#f6c84c"/></g>
+    <g transform="translate(560)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#22b8a7" stroke-width="9"/><path d="M120 101l60 104H60Z" fill="#22b8a7"/><rect x="102" y="306" width="36" height="36" rx="8" fill="#f0645a"/></g>
+    <g transform="translate(840)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#f6c84c" stroke-width="9"/><circle cx="120" cy="165" r="20" fill="#f6c84c"/><path d="M120 255l62 107H58Z" fill="#7957d5"/></g>
+    <g transform="translate(1120)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#f0645a" stroke-width="9"/><rect x="68" y="108" width="104" height="104" rx="24" fill="#f0645a"/><circle cx="120" cy="324" r="19" fill="#7957d5"/></g>
+    <g transform="translate(1400)"><path class="vessel" d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z"/><path d="M83 73h74" stroke="#22b8a7" stroke-width="9"/><circle cx="120" cy="160" r="52" fill="#22b8a7"/><path d="M120 303l24 42H96Z" fill="#f6c84c"/></g>
+
+    <!-- Pedestales y placas -->
+    <g>
+      <path d="M30 430h180l22 42v104H8V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/><path d="M310 430h180l22 42v104H288V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/><path d="M590 430h180l22 42v104H568V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/><path d="M870 430h180l22 42v104H848V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/><path d="M1150 430h180l22 42v104h-224V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/><path d="M1430 430h180l22 42v104h-224V472Z" fill="url(#plinth)" stroke="#172554" stroke-width="5"/>
+      <g fill="#172554"><rect x="84" y="484" width="72" height="42" rx="21"/><rect x="364" y="484" width="72" height="42" rx="21"/><rect x="644" y="484" width="72" height="42" rx="21"/><rect x="924" y="484" width="72" height="42" rx="21"/><rect x="1204" y="484" width="72" height="42" rx="21"/><rect x="1484" y="484" width="72" height="42" rx="21"/></g>
+      <g class="number" text-anchor="middle"><text x="120" y="514">1</text><text x="400" y="514">2</text><text x="680" y="514">3</text><text x="960" y="514">4</text><text x="1240" y="514">5</text><text x="1520" y="514">6</text></g>
+    </g>
+  </g>
+
+  <text x="960" y="1010" text-anchor="middle" font-family="Arial" font-size="18" letter-spacing="5" fill="#ffe9df">SALA DE PATRONES · COLECCIÓN 01</text>
+</svg>
