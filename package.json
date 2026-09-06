@@ -1,0 +1,10 @@
+{
+  "name": "canal-familiar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node src/validar-piloto.mjs",
+    "generate": "node src/generar-piloto.mjs",
+    "pilot": "npm run validate && npm run generate"
+  }
+}

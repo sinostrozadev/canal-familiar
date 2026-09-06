@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080">
   <defs>
     <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fff7e8"/><stop offset="1" stop-color="#ffd9cd"/></linearGradient>
-    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#132238" flood-opacity=".18"/></filter>
-    <style>.title{font:700 58px Arial,sans-serif;fill:#132238}.sub{font:400 29px Arial,sans-serif;fill:#3b4858}.num{font:700 28px Arial,sans-serif;fill:#fff}.vase{fill:#fdf3df;stroke:#132238;stroke-width:7}</style>
+    
+    <style>.title{font-weight:700;font-size:58px;font-family:"DejaVu Sans",sans-serif;fill:#132238}.sub{font-weight:400;font-size:29px;font-family:"DejaVu Sans",sans-serif;fill:#3b4858}.num{font-weight:700;font-size:28px;font-family:"DejaVu Sans",sans-serif;fill:#fff}.vase{fill:#fdf3df;stroke:#132238;stroke-width:7}</style>
   </defs>
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <path d="M0 865 Q480 810 960 865 T1920 865V1080H0Z" fill="#f7bfae"/>

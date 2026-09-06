@@ -1,0 +1,17 @@
+{
+  "id": "ronda-04",
+  "type": "rule-breaker",
+  "question": "¿Qué cuadro tiene algo de más?",
+  "hint": "Cinco obras obedecen exactamente la misma regla",
+  "seconds": 9,
+  "rule": { "circles": 2, "lines": 3, "triangles": 1 },
+  "expectedAnswer": 5,
+  "panels": [
+    { "id": 1, "circles": 2, "lines": 3, "triangles": 1 },
+    { "id": 2, "circles": 2, "lines": 3, "triangles": 1 },
+    { "id": 3, "circles": 2, "lines": 3, "triangles": 1 },
+    { "id": 4, "circles": 2, "lines": 3, "triangles": 1 },
+    { "id": 5, "circles": 2, "lines": 3, "triangles": 2 },
+    { "id": 6, "circles": 2, "lines": 3, "triangles": 1 }
+  ]
+}

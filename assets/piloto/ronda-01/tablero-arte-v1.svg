@@ -8,10 +8,10 @@
     <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse"><circle cx="10" cy="18" r="1.4" fill="#132238" opacity=".045"/><circle cx="66" cy="42" r="1" fill="#132238" opacity=".035"/><circle cx="38" cy="78" r="1.2" fill="#132238" opacity=".03"/></pattern>
     <filter id="soft"><feGaussianBlur stdDeviation="13"/></filter>
     <style>
-      .title{font:700 55px Arial,sans-serif;letter-spacing:-1px;fill:#fff8ee}
-      .eyebrow{font:700 18px Arial,sans-serif;letter-spacing:4px;fill:#f6c84c}
-      .sub{font:400 27px Arial,sans-serif;fill:#dce6ee}
-      .number{font:700 25px Arial,sans-serif;fill:#fff}
+      .title{font-weight:700;font-size:55px;font-family:"DejaVu Sans",sans-serif;letter-spacing:-1px;fill:#fff8ee}
+      .eyebrow{font-weight:700;font-size:18px;font-family:"DejaVu Sans",sans-serif;letter-spacing:4px;fill:#f6c84c}
+      .sub{font-weight:400;font-size:27px;font-family:"DejaVu Sans",sans-serif;fill:#dce6ee}
+      .number{font-weight:700;font-size:25px;font-family:"DejaVu Sans",sans-serif;fill:#fff}
       .vessel{fill:url(#vase);stroke:#172554;stroke-width:6}
     </style>
   </defs>
@@ -30,7 +30,7 @@
   <text x="165" y="65" class="eyebrow">MUSEO DE LAS COSAS IMPOSIBLES</text>
   <text x="165" y="126" class="title">¿Qué jarrón rompe la regla?</text>
   <text x="166" y="169" class="sub">Observa el tamaño de las figuras</text>
-  <g transform="translate(1740 102)"><circle r="55" fill="#253867" stroke="#5b6f9c" stroke-width="5"/><path d="M0-55A55 55 0 1 1-52 17" fill="none" stroke="#f6c84c" stroke-width="10" stroke-linecap="round"/><text y="14" text-anchor="middle" font-family="Arial" font-size="39" font-weight="700" fill="#fff">7</text></g>
+  <g transform="translate(1740 102)"><circle r="55" fill="#253867" stroke="#5b6f9c" stroke-width="5"/><path d="M0-55A55 55 0 1 1-52 17" fill="none" stroke="#f6c84c" stroke-width="10" stroke-linecap="round"/><text y="14" text-anchor="middle" font-family="DejaVu Sans" font-size="39" font-weight="700" fill="#fff">7</text></g>
 
   <!-- Arquitectura de galería -->
   <path d="M80 260H1840V770H80Z" fill="none" stroke="#d18f80" stroke-width="5"/>
@@ -58,5 +58,5 @@
     </g>
   </g>
 
-  <text x="960" y="1010" text-anchor="middle" font-family="Arial" font-size="18" letter-spacing="5" fill="#ffe9df">SALA DE PATRONES · COLECCIÓN 01</text>
+  <text x="960" y="1010" text-anchor="middle" font-family="DejaVu Sans" font-size="18" letter-spacing="5" fill="#ffe9df">SALA DE PATRONES · COLECCIÓN 01</text>
 </svg>
