@@ -1,0 +1,68 @@
+{
+  "voice": "es-CL-LorenzoNeural",
+  "locale": "es-CL",
+  "rate": "+3%",
+  "pitch": "0%",
+  "segments": [
+    {
+      "id": "r01-pregunta",
+      "scene": "ronda-01/tablero",
+      "text": "Bienvenido al Museo de las Cosas Imposibles. En cada sala hay algo que rompe las reglas. Comenzamos con una sencilla: cinco jarrones siguen el mismo patrón y uno no. ¿Cuál es? Tienes siete segundos.",
+      "pauseAfterMs": 7000
+    },
+    {
+      "id": "r01-respuesta",
+      "scene": "ronda-01/tablero",
+      "text": "Es el número cuatro. En todos los demás, la figura grande está arriba y la pequeña abajo. Este las tiene invertidas. Si lo encontraste, sumas tu primer punto.",
+      "pauseAfterMs": 500
+    },
+    {
+      "id": "r02-pregunta",
+      "scene": "ronda-02/tablero",
+      "text": "Segunda sala. La lámpara ilumina todas las esculturas desde el mismo lugar, pero una sombra decidió ignorarla. ¿Cuál apunta hacia donde no corresponde?",
+      "pauseAfterMs": 8000
+    },
+    {
+      "id": "r02-respuesta",
+      "scene": "ronda-02/tablero",
+      "text": "La número dos. Si la luz viene desde la izquierda, la sombra debe alejarse hacia la derecha. Esta viaja justo en la dirección contraria.",
+      "pauseAfterMs": 500
+    },
+    {
+      "id": "r03-memoriza",
+      "scene": "ronda-03/tablero-antes",
+      "text": "Ahora no busques todavía. Memoriza esta sala: tienes cuatro segundos.",
+      "pauseAfterMs": 4000
+    },
+    {
+      "id": "r03-pregunta",
+      "scene": "ronda-03/tablero-despues",
+      "text": "Algo cambió. ¿Puedes descubrir qué fue?",
+      "pauseAfterMs": 7000
+    },
+    {
+      "id": "r03-respuesta",
+      "scene": "ronda-03/tablero-despues",
+      "text": "La cámara estaba mirando hacia la izquierda y ahora mira hacia la derecha. No desapareció nada: solo cambió la dirección.",
+      "pauseAfterMs": 500
+    },
+    {
+      "id": "r04-pregunta",
+      "scene": "ronda-04/tablero",
+      "text": "Estos cuadros parecen completamente distintos, pero cinco obedecen una regla exacta. Uno tiene algo de más. ¿Cuál rompe la colección?",
+      "pauseAfterMs": 9000
+    },
+    {
+      "id": "r04-respuesta",
+      "scene": "ronda-04/tablero",
+      "text": "Es el cuadro cinco. Todos tienen dos círculos, tres líneas y un solo triángulo. Aquí se escondió un segundo triángulo.",
+      "pauseAfterMs": 500
+    },
+    {
+      "id": "bloque-cierre",
+      "scene": "ronda-04/tablero",
+      "text": "Primer sector completado. Si llevas cuatro puntos, tu vista está bien entrenada. Pero hasta ahora el museo solo estaba calentando.",
+      "pauseAfterMs": 800
+    }
+  ]
+}

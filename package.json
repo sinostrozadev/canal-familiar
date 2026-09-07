@@ -6,7 +6,11 @@
     "test": "node --test",
     "validate": "node src/validar-piloto.mjs",
     "generate": "node src/generar-piloto.mjs",
+    "ssml": "node src/generar-ssml.mjs",
+    "voice": "node src/sintetizar-azure.mjs",
     "render": "bash scripts/render-piloto.sh",
-    "pilot": "npm run test && npm run validate && npm run generate && npm run render"
+    "timeline": "node src/generar-timeline.mjs",
+    "montage:silent": "bash scripts/montar-sin-voz.sh",
+    "pilot": "npm run test && npm run validate && npm run generate && npm run render && npm run ssml && npm run timeline"
   }
 }

@@ -35,4 +35,6 @@ Las rondas 1–4 ya usan este contrato. El comando `npm run pilot` ejecuta prueb
 
 ## Alcance actual
 
-El generador cubre las rondas 1–4 y produce cinco tableros, porque la ronda de memoria requiere estados anterior y posterior. La siguiente etapa incorporará voz y montaje temporal sobre estos mismos artefactos.
+El generador cubre las rondas 1–4 y produce cinco tableros, porque la ronda de memoria requiere estados anterior y posterior. La narración se divide en segmentos SSML y utiliza la voz oficial `es-CL-LorenzoNeural`. Las credenciales se leen únicamente desde `AZURE_SPEECH_KEY` y `AZURE_SPEECH_REGION`; nunca se guardan en el repositorio.
+
+`npm run montage:silent` produce un montaje técnico sin voz para revisar orden y permanencia de escenas. Cuando el audio esté disponible, las duraciones estimadas deberán sustituirse por las duraciones reales obtenidas con `ffprobe` antes del montaje final.
