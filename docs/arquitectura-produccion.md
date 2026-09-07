@@ -31,8 +31,8 @@ Cada juego declara su regla, opciones y respuesta esperada. El validador calcula
 - la respuesta calculada no coincide con la declarada;
 - faltan propiedades necesarias para evaluar la regla.
 
-La ronda 4 es la primera prueba de este contrato. El comando `npm run pilot` valida los datos antes de escribir el SVG.
+Las rondas 1–4 ya usan este contrato. El comando `npm run pilot` ejecuta pruebas negativas, valida los datos, genera los cinco SVG y los rasteriza.
 
 ## Alcance actual
 
-El generador inicial cubre la ronda 4 para probar el contrato. Una vez aprobado, las rondas 1–3 se migrarán al mismo modelo antes de continuar con el resto del video.
+El generador cubre las rondas 1–4 y produce cinco tableros, porque la ronda de memoria requiere estados anterior y posterior. La siguiente etapa incorporará voz y montaje temporal sobre estos mismos artefactos.

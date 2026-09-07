@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
-import { validateUniqueRuleBreaker } from "./lib/validacion.mjs";
+import { validateRound } from "./lib/validacion.mjs";
 
-const round = JSON.parse(await readFile("data/piloto/ronda-04.json", "utf8"));
-const answer = validateUniqueRuleBreaker(round);
-console.log(`OK ${round.id}: respuesta única = ${answer.id}`);
+for (const number of ["01", "02", "03", "04"]) {
+  const round = JSON.parse(await readFile(`data/piloto/ronda-${number}.json`, "utf8"));
+  const result = validateRound(round);
+  console.log(`OK ${round.id}: ${JSON.stringify(result)}`);
+}

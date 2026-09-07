@@ -1,47 +1,21 @@
 import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import { escapeXml, symbolLayout } from "./lib/svg.mjs";
-import { validateUniqueRuleBreaker } from "./lib/validacion.mjs";
+import { validateRound } from "./lib/validacion.mjs";
 
-const FONT = "assets/fonts/DejaVuSans.ttf";
-const FONT_BOLD = "assets/fonts/DejaVuSans-Bold.ttf";
-await Promise.all([access(FONT), access(FONT_BOLD)]);
+await Promise.all([access("assets/fonts/DejaVuSans.ttf"), access("assets/fonts/DejaVuSans-Bold.ttf")]);
+const p={ink:"#132238",navy:"#172554",ivory:"#fff7e8",coral:"#f0645a",teal:"#22b8a7",yellow:"#f6c84c",violet:"#7957d5"};
+const style=`<style>.title{font-weight:700;font-size:58px;font-family:"DejaVu Sans",sans-serif;fill:${p.ink}}.subtitle{font-weight:400;font-size:29px;font-family:"DejaVu Sans",sans-serif;fill:#3b4858}.number{font-weight:700;font-size:27px;font-family:"DejaVu Sans",sans-serif;fill:#fff}.small-number{font-weight:700;font-size:22px;font-family:"DejaVu Sans",sans-serif;fill:#fff}</style>`;
 
-const round = JSON.parse(await readFile("data/piloto/ronda-04.json", "utf8"));
-validateUniqueRuleBreaker(round);
+function header(number,title,hint,seconds,accent){return `<circle cx="115" cy="105" r="50" fill="${accent}"/><text x="115" y="116" text-anchor="middle" class="number">${number}</text><text x="190" y="105" class="title">${escapeXml(title)}</text><text x="192" y="154" class="subtitle">${escapeXml(hint)}</text><g transform="translate(1740 100)"><circle r="58" fill="none" stroke="#fff" stroke-width="13"/><path d="M0-58A58 58 0 1 1-55 18" fill="none" stroke="${accent}" stroke-width="13" stroke-linecap="round"/><text y="12" text-anchor="middle" class="title" style="font-size:38px">${seconds}</text></g>`}
+function shape(shape,size,color,cx,cy){const s=size==="large"?1:.42;if(shape==="circle")return `<circle cx="${cx}" cy="${cy}" r="${52*s}" fill="${color}"/>`;if(shape==="square"){const d=100*s;return `<rect x="${cx-d/2}" y="${cy-d/2}" width="${d}" height="${d}" rx="${18*s}" fill="${color}"/>`}return `<path d="M${cx} ${cy-58*s}l${58*s} ${102*s}h-${116*s}Z" fill="${color}"/>`}
 
-const positions = [[145, 235], [720, 235], [1295, 235], [145, 625], [720, 625], [1295, 625]];
-const strokes = ["#f0645a", "#22b8a7", "#7957d5", "#22b8a7", "#f0645a", "#7957d5"];
-const panels = round.panels.map((panel, index) => {
-  const [x, y] = positions[index];
-  return `<g transform="translate(${x} ${y})">
-    <rect width="480" height="315" rx="25" class="frame" stroke="${strokes[index]}"/>
-    ${symbolLayout(panel)}
-    <rect x="204" y="326" width="72" height="42" rx="21" class="number-bg"/>
-    <text x="240" y="356" text-anchor="middle" class="number">${panel.id}</text>
-  </g>`;
-}).join("\n");
+function render1(r){const items=r.items.map((i,n)=>{const x=110+n*280;return `<g transform="translate(${x} 320)"><path d="M70 20h100l-11 58c49 50 67 107 67 192 0 101-43 152-106 152S14 371 14 270c0-85 18-142 67-192Z" fill="#fffdf4" stroke="${p.navy}" stroke-width="6"/>${shape(i.top.shape,i.top.size,i.top.color,120,160)}${shape(i.bottom.shape,i.bottom.size,i.bottom.color,120,320)}<path d="M30 430h180l22 42v104H8V472Z" fill="${p.ivory}" stroke="${p.navy}" stroke-width="5"/><rect x="84" y="484" width="72" height="42" rx="21" fill="${p.navy}"/><text x="120" y="514" text-anchor="middle" class="small-number">${i.id}</text></g>`}).join("");return `<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080"><defs><linearGradient id="bg" y2="1"><stop stop-color="#fff8ee"/><stop offset="1" stop-color="#efb7a5"/></linearGradient>${style}</defs><rect width="1920" height="1080" fill="url(#bg)"/>${header("01",r.question,r.hint,r.seconds,p.coral)}${items}</svg>`}
+function sculpture(k,c){if(k==="circle")return `<circle cx="120" cy="200" r="78" fill="${c}"/>`;if(k==="triangle")return `<path d="M120 105l88 176H32Z" fill="${c}"/>`;if(k==="square")return `<rect x="43" y="125" width="154" height="154" rx="26" fill="${c}"/>`;if(k==="pentagon")return `<path d="M120 110l75 65-28 98H73l-28-98Z" fill="${c}"/>`;return `<path d="M40 280V110h70v58h70v112Z" fill="${c}"/>`}
+function render2(r){const items=r.items.map((i,n)=>{const x=160+n*350,sx=i.shadowDirection==="down-left"?-5:120,a=i.shadowDirection==="down-left"?12:-12;return `<g transform="translate(${x} 370)"><ellipse cx="${sx}" cy="438" rx="115" ry="32" fill="#456172" opacity=".32" transform="rotate(${a} ${sx} 438)"/>${sculpture(i.shape,i.color)}<rect x="45" y="310" width="150" height="115" fill="${p.ivory}" stroke="${p.ink}" stroke-width="6"/><rect x="76" y="420" width="88" height="42" rx="20" fill="${p.navy}"/><text x="120" y="450" text-anchor="middle" class="small-number">${i.id}</text></g>`}).join("");return `<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080"><defs><linearGradient id="bg" y2="1"><stop stop-color="#e7fffa"/><stop offset="1" stop-color="#9ce6da"/></linearGradient>${style}</defs><rect width="1920" height="1080" fill="url(#bg)"/>${header("02",r.question,r.hint,r.seconds,p.teal)}<path d="M100 235h145l-30 75H130Z" fill="${p.yellow}" stroke="${p.ink}" stroke-width="6"/><circle cx="172" cy="366" r="15" fill="#fff3a6"/><path d="M190 380L430 730" stroke="${p.yellow}" stroke-width="20" opacity=".25"/>${items}</svg>`}
+function object(i){const flip=i.direction==="right"&&i.kind==="camera"?`transform="translate(470 0) scale(-1 1)"`:"";if(i.kind==="camera")return `<g ${flip}><rect x="115" y="88" width="210" height="125" rx="20" fill="${i.color}" stroke="${p.ink}" stroke-width="7"/><circle cx="155" cy="150" r="38" fill="${p.navy}"/><path d="M115 117L38 82v136l77-35Z" fill="${p.yellow}" stroke="${p.ink}" stroke-width="7"/></g>`;if(i.kind==="gramophone")return `<path d="M190 75h95l42 84-42 47h-95l-42-47Z" fill="${i.color}" stroke="${p.ink}" stroke-width="7"/><path d="M238 206v42M175 248h125" stroke="${p.ink}" stroke-width="12"/><circle cx="238" cy="141" r="24" fill="${p.coral}"/>`;if(i.kind==="globe")return `<circle cx="235" cy="130" r="82" fill="${i.color}" stroke="${p.ink}" stroke-width="7"/><path d="M235 48c-30 45-30 119 0 164M175 82c50 35 72 35 120 0M176 180c48-35 70-35 118 0" fill="none" stroke="${p.ivory}" stroke-width="10"/>`;if(i.kind==="hourglass")return `<path d="M165 65h140M165 215h140M185 75c0 55 35 58 50 72-15 14-50 17-50 58M285 75c0 55-35 58-50 72 15 14 50 17 50 58" fill="none" stroke="${p.ink}" stroke-width="13"/><path d="M205 176h60l-30 35Z" fill="${i.color}"/>`;if(i.kind==="telephone")return `<path d="M150 105c0-52 170-52 170 0v105H150Z" fill="${i.color}" stroke="${p.ink}" stroke-width="7"/><circle cx="235" cy="160" r="30" fill="${p.yellow}"/>`;return `<path d="M112 190l255-98M130 205l255-98" stroke="${p.ink}" stroke-width="18"/><circle cx="118" cy="198" r="42" fill="${i.color}" stroke="${p.ink}" stroke-width="7"/><circle cx="377" cy="100" r="58" fill="${p.coral}" stroke="${p.ink}" stroke-width="7"/>`}
+function render3(r,state,phase){const before=phase==="before",pos=[[170,255],[725,255],[1280,255],[170,600],[725,600],[1280,600]],cards=state.map((i,n)=>`<g transform="translate(${pos[n][0]} ${pos[n][1]})"><rect width="470" height="280" rx="35" fill="${p.ivory}"/>${object(i)}</g>`).join("");return `<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080"><defs><linearGradient id="bg" y2="1"><stop stop-color="#f5f0ff"/><stop offset="1" stop-color="#d5c7ff"/></linearGradient>${style}</defs><rect width="1920" height="1080" fill="url(#bg)"/>${header("03",before?r.questionBefore:r.questionAfter,before?r.hintBefore:r.hintAfter,before?r.memorizeSeconds:r.answerSeconds,p.violet)}${cards}</svg>`}
+function render4(r){const pos=[[145,235],[720,235],[1295,235],[145,625],[720,625],[1295,625]],strokes=[p.coral,p.teal,p.violet,p.teal,p.coral,p.violet],panels=r.panels.map((i,n)=>`<g transform="translate(${pos[n][0]} ${pos[n][1]})"><rect width="480" height="315" rx="25" fill="${p.ivory}" stroke="${strokes[n]}" stroke-width="15"/>${symbolLayout(i)}<rect x="204" y="326" width="72" height="42" rx="21" fill="${p.navy}"/><text x="240" y="356" text-anchor="middle" class="small-number">${i.id}</text></g>`).join("");return `<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080"><defs><linearGradient id="bg" y2="1"><stop stop-color="#fffbea"/><stop offset="1" stop-color="#f8df8f"/></linearGradient>${style}<style>.line{fill:none;stroke:${p.teal};stroke-width:13;stroke-linecap:round}.circle{fill:${p.coral}}.triangle{fill:${p.violet}}</style></defs><rect width="1920" height="1080" fill="url(#bg)"/>${header("04",r.question,r.hint,r.seconds,p.yellow)}${panels}</svg>`}
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080">
-  <defs>
-    <linearGradient id="background" y2="1"><stop stop-color="#fffbea"/><stop offset="1" stop-color="#f8df8f"/></linearGradient>
-    <style>
-      .title{font-weight:700;font-size:58px;font-family:"DejaVu Sans",sans-serif;fill:#132238}
-      .subtitle{font-weight:400;font-size:29px;font-family:"DejaVu Sans",sans-serif;fill:#3b4858}
-      .number{font-weight:700;font-size:27px;font-family:"DejaVu Sans",sans-serif;fill:#fff}
-      .frame{fill:#fff7e8;stroke-width:15}
-      .line{fill:none;stroke:#22b8a7;stroke-width:13;stroke-linecap:round}
-      .circle{fill:#f0645a}.triangle{fill:#7957d5}.number-bg{fill:#172554}
-    </style>
-  </defs>
-  <rect width="1920" height="1080" fill="url(#background)"/>
-  <circle cx="115" cy="105" r="50" fill="#f6c84c"/>
-  <text x="115" y="117" text-anchor="middle" class="number">04</text>
-  <text x="190" y="105" class="title">${escapeXml(round.question)}</text>
-  <text x="192" y="154" class="subtitle">${escapeXml(round.hint)}</text>
-  ${panels}
-  <g transform="translate(1740 100)"><circle r="58" fill="none" stroke="#fff" stroke-width="13"/><path d="M0-58A58 58 0 1 1-55 18" fill="none" stroke="#f6c84c" stroke-width="13" stroke-linecap="round"/><text y="12" text-anchor="middle" class="title" style="font-size:38px">${round.seconds}</text></g>
-</svg>`;
-
-await mkdir("build/piloto/ronda-04", { recursive: true });
-await writeFile("build/piloto/ronda-04/tablero.svg", svg);
-console.log("Generado build/piloto/ronda-04/tablero.svg");
+const rounds={};for(const n of ["01","02","03","04"]){const r=JSON.parse(await readFile(`data/piloto/ronda-${n}.json`,"utf8"));validateRound(r);rounds[n]=r}
+const outputs=[["ronda-01/tablero.svg",render1(rounds["01"])],["ronda-02/tablero.svg",render2(rounds["02"])],["ronda-03/tablero-antes.svg",render3(rounds["03"],rounds["03"].before,"before")],["ronda-03/tablero-despues.svg",render3(rounds["03"],rounds["03"].after,"after")],["ronda-04/tablero.svg",render4(rounds["04"])]];
+for(const [relative,svg] of outputs){const target=`build/piloto/${relative}`;await mkdir(target.slice(0,target.lastIndexOf("/")),{recursive:true});await writeFile(target,svg);console.log(`Generado ${target}`)}

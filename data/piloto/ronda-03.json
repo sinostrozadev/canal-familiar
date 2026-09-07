@@ -1,0 +1,27 @@
+{
+  "id": "ronda-03",
+  "type": "memory-change",
+  "questionBefore": "Memoriza esta sala",
+  "hintBefore": "Tienes cuatro segundos antes de que algo cambie",
+  "questionAfter": "¿Qué cambió?",
+  "hintAfter": "Compara la escena con la que acabas de memorizar",
+  "memorizeSeconds": 4,
+  "answerSeconds": 7,
+  "expectedChange": { "itemId": "camera", "property": "direction", "from": "left", "to": "right" },
+  "before": [
+    { "id": "camera", "kind": "camera", "direction": "left", "color": "#f0645a" },
+    { "id": "gramophone", "kind": "gramophone", "direction": "right", "color": "#f6c84c" },
+    { "id": "globe", "kind": "globe", "direction": "front", "color": "#22b8a7" },
+    { "id": "hourglass", "kind": "hourglass", "direction": "front", "color": "#f0645a" },
+    { "id": "telephone", "kind": "telephone", "direction": "front", "color": "#7957d5" },
+    { "id": "telescope", "kind": "telescope", "direction": "right", "color": "#22b8a7" }
+  ],
+  "after": [
+    { "id": "camera", "kind": "camera", "direction": "right", "color": "#f0645a" },
+    { "id": "gramophone", "kind": "gramophone", "direction": "right", "color": "#f6c84c" },
+    { "id": "globe", "kind": "globe", "direction": "front", "color": "#22b8a7" },
+    { "id": "hourglass", "kind": "hourglass", "direction": "front", "color": "#f0645a" },
+    { "id": "telephone", "kind": "telephone", "direction": "front", "color": "#7957d5" },
+    { "id": "telescope", "kind": "telescope", "direction": "right", "color": "#22b8a7" }
+  ]
+}

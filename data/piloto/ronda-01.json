@@ -1,0 +1,16 @@
+{
+  "id": "ronda-01",
+  "type": "size-order",
+  "question": "¿Qué jarrón rompe la regla?",
+  "hint": "Observa el tamaño de las figuras",
+  "seconds": 7,
+  "expectedAnswer": 4,
+  "items": [
+    { "id": 1, "top": { "shape": "circle", "size": "large", "color": "#f0645a" }, "bottom": { "shape": "square", "size": "small", "color": "#22b8a7" } },
+    { "id": 2, "top": { "shape": "square", "size": "large", "color": "#7957d5" }, "bottom": { "shape": "circle", "size": "small", "color": "#f6c84c" } },
+    { "id": 3, "top": { "shape": "triangle", "size": "large", "color": "#22b8a7" }, "bottom": { "shape": "square", "size": "small", "color": "#f0645a" } },
+    { "id": 4, "top": { "shape": "circle", "size": "small", "color": "#f6c84c" }, "bottom": { "shape": "triangle", "size": "large", "color": "#7957d5" } },
+    { "id": 5, "top": { "shape": "square", "size": "large", "color": "#f0645a" }, "bottom": { "shape": "circle", "size": "small", "color": "#7957d5" } },
+    { "id": 6, "top": { "shape": "circle", "size": "large", "color": "#22b8a7" }, "bottom": { "shape": "triangle", "size": "small", "color": "#f6c84c" } }
+  ]
+}

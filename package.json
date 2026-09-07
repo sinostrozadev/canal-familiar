@@ -3,8 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test",
     "validate": "node src/validar-piloto.mjs",
     "generate": "node src/generar-piloto.mjs",
-    "pilot": "npm run validate && npm run generate"
+    "render": "bash scripts/render-piloto.sh",
+    "pilot": "npm run test && npm run validate && npm run generate && npm run render"
   }
 }

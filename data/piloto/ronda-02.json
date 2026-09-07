@@ -1,0 +1,17 @@
+{
+  "id": "ronda-02",
+  "type": "shadow-direction",
+  "question": "¿Qué sombra va al lado incorrecto?",
+  "hint": "La lámpara ilumina todas las esculturas desde el mismo lugar",
+  "seconds": 8,
+  "lightDirection": "down-right",
+  "expectedShadowDirection": "down-right",
+  "expectedAnswer": 2,
+  "items": [
+    { "id": 1, "shape": "circle", "color": "#f0645a", "shadowDirection": "down-right" },
+    { "id": 2, "shape": "triangle", "color": "#7957d5", "shadowDirection": "down-left" },
+    { "id": 3, "shape": "square", "color": "#f6c84c", "shadowDirection": "down-right" },
+    { "id": 4, "shape": "pentagon", "color": "#22b8a7", "shadowDirection": "down-right" },
+    { "id": 5, "shape": "steps", "color": "#f0645a", "shadowDirection": "down-right" }
+  ]
+}
